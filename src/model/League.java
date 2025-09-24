@@ -22,19 +22,19 @@ public class League {
         this.leagueName = leagueName;
     }
 
-    public void addTeam(List<Player> players) {
-        try {
-            league.add(players);
-        } catch (Exception e) {
-            System.out.println("Error adding the team: " + e.getMessage());
-        }
+    public void addTeam(Team team) {
+        league.add(team);
     }
 
     public void listAllTeams() {
-        for(Team iterateTeams: teams) {
-            for(Player iteratePlayers: players) {
+        for(Team team: league) {
+            System.out.println("Team name: " + team);
+        }
+    }
 
-            }
+    public void listAllTeamAndPlayers() {
+        for(Team team: league) {
+            for(Player player: team)
         }
     }
 

@@ -5,19 +5,19 @@ import java.util.List;
 
 public class Team {
     // Attribute
-    private List<Player> players;
+    private List<Player> team;
     private String teamName;
     
     // Constructor
     public Team(String teamName) {
         this.teamName = teamName;
-        this.players = new ArrayList<>();
+        this.team = new ArrayList<>();
     }
 
     // Methods
     @Override
     public String toString() {
-        return "Team [players=" + players + ", teamName=" + teamName + "]";
+        return "Team [team=" + team + ", teamName=" + teamName + "]";
     }
 
     public String getTeamName() {
@@ -29,24 +29,24 @@ public class Team {
     }
 
     public void addPlayer(Player player) {
-        players.add(player);
+        team.add(player);
     }
 
     public Player findPlayer(int playerNumber) {
-        // Iterate on the players list until either the player is found or there are no players left
-        for(Player iterator: players) {
-            if(iterator.getPlayerNumber() == playerNumber) {
-                System.out.println(iterator.toString());
-                return iterator;
+        // Iterate on the team list until either the player is found or there are no team left
+        for(Player player: team) {
+            if(player.getPlayerNumber() == playerNumber) {
+                System.out.println(player.toString());
+                return player;
             }
         }
         // If player was not found the method returns a null object
         return null;
     }
 
-    public void listTeamPlayers() {
-        for(Player iterator: players) {
-            System.out.println("* " + iterator);
+    public void listTeamteam() {
+        for(Player player: team) {
+            System.out.println("* " + player);
         }
     }
     
