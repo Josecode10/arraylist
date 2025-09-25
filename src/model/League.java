@@ -37,7 +37,7 @@ public class League {
         return null;
     }
 
-    public void listAllTeams() {
+    public void listTeams() {
         var i = 1;
         for(Team team: teams) {
             System.out.println(i + ") " + team);

@@ -7,6 +7,7 @@ public class Team {
     // Attribute
     private List<Player> players;
     private String teamName;
+
     
     // Constructor
     public Team() {}
@@ -29,11 +30,11 @@ public class Team {
         players.add(player);
     }
 
-    public Player findPlayer(int playerNumber) {
+    public Player searchPlayer(int playerNumber) {
         // Iterate on the team list until either the player is found or there are no team left
         for(Player player: players) {
             if(player.getPlayerNumber() == playerNumber) {
-                System.out.println(player.toString());
+                System.out.println(player);
                 return player;
             }
         }
@@ -41,7 +42,7 @@ public class Team {
         return null;
     }
 
-    public void listTeamPlayers() {
+    public void listPlayers() {
         var i = 1;
         for(Player player: players) {
             i++;
