@@ -2,25 +2,25 @@ package model;
 
 public class Player {
     // Attribute
-    private int playerNumber;
+    private static int playerCounter;
+    private int playerId;
     private String playerName;
+    private int jerseyNumber;
     private String playerPosition;
+    private int teamId;
 
     // Constructor
 
-    public Player(String playerName, int playerNumber, String playerPosition) {
+    public Player(String playerName, int jerseyNumber, String playerPosition) {
         this.playerName = playerName;
-        this.playerNumber = playerNumber;
+        this.jerseyNumber = jerseyNumber;
         this.playerPosition = playerPosition;
+        this.playerId = ++playerCounter;
     }
     
     // methods
-    public int getPlayerNumber() {
-        return playerNumber;
-    }
-
-    public void setPlayerNumber(int playerNumber) {
-        this.playerNumber = playerNumber;
+    public int getPlayerId() {
+        return playerId;
     }
 
     public String getPlayerName() {
@@ -31,6 +31,14 @@ public class Player {
         this.playerName = playerName;
     }
 
+    public int getJerseyNumber() {
+        return jerseyNumber;
+    }
+
+    public void setJerseyNumber(int jerseyNumber) {
+        this.jerseyNumber = jerseyNumber;
+    }
+
     public String getPlayerPosition() {
         return playerPosition;
     }
@@ -39,15 +47,18 @@ public class Player {
         this.playerPosition = playerPosition;
     }
 
+    public int getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
+    }
+
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Player{");
-        sb.append("playerNumber=").append(playerNumber);
-        sb.append(", playerName=").append(playerName);
-        sb.append(", playerPosition=").append(playerPosition);
-        sb.append('}');
-        return sb.toString();
+        return "Player [playerId=" + playerId + ", playerName=" + playerName + ", jerseyNumber=" + jerseyNumber
+                + ", playerPosition=" + playerPosition + ", teamId=" + teamId + "]";
     }
 
 }

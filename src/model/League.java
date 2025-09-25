@@ -5,8 +5,11 @@ import java.util.List;
 
 public class League {
     // Attributes
-    private List<Team> teams;
+    private static int leagueCounter;
+    private int leagueId;
     private String leagueName;
+    private int zoneId;
+    private List<Team> teams;
 
     // Constructor
     public League() {}
@@ -14,17 +17,31 @@ public class League {
     public League(String leagueName) {
         this.leagueName = leagueName;
         this.teams = new ArrayList<>();
+        this.leagueId = ++leagueCounter;
     }
 
     public String getLeagueName() {
         return leagueName;
     }
 
+    public int getZoneId() {
+        return zoneId;
+    }
+
+    public void setZoneId(int zoneId) {
+        this.zoneId = zoneId;
+    }
+
     public void setLeagueName(String leagueName) {
         this.leagueName = leagueName;
     }
 
+    public int getLeagueId() {
+        return leagueId;
+    }
+
     public void addTeam(Team team) {
+        team.setLeagueId(this.leagueId);
         teams.add(team);
     }
 
@@ -50,13 +67,13 @@ public class League {
         for(Team team: teams) {
             System.out.println(i + ") " + team.getTeamName());
             i++;
-            team.listTeamPlayers();
+            team.listPlayers();
         }
     }
 
     @Override
     public String toString() {
-        return "League [leagueName=" + leagueName + "]";
+        return "League [leagueId=" + leagueId + ", leagueName=" + leagueName + ", zoneId=" + zoneId + "]";
     }
 
 }

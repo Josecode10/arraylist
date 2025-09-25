@@ -5,8 +5,10 @@ import java.util.List;
 
 public class Zone {
     // Attributes
-    private List<League> leagues;
+    private static int zoneCounter;
+    private int zoneID;
     private String zoneName;
+    private List<League> leagues;
 
     // Contructor
     public Zone() {}
@@ -14,6 +16,7 @@ public class Zone {
     public Zone(String zoneName) {
         this.zoneName = zoneName;
         this.leagues = new ArrayList<>();
+        this.zoneID = ++zoneCounter;
     }
 
     public String getZoneName() {
@@ -25,6 +28,7 @@ public class Zone {
     }
 
     public void addLeague(League league) {
+        league.setZoneId(this.zoneID);
         leagues.add(league);
     }
 
@@ -45,10 +49,8 @@ public class Zone {
         }
     }
 
-
     @Override
     public String toString() {
-        return "Zone [zoneName=" + zoneName + "]";
+        return "Zone [zoneID=" + zoneID + ", zoneName=" + zoneName + "]";
     }
-
 }

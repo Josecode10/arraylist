@@ -5,9 +5,11 @@ import java.util.List;
 
 public class Team {
     // Attribute
-    private List<Player> players;
+    private static int teamCounter;
+    private int teamId;
     private String teamName;
-
+    private int leagueId;
+    private List<Player> players;
     
     // Constructor
     public Team() {}
@@ -15,6 +17,7 @@ public class Team {
     public Team(String teamName) {
         this.teamName = teamName;
         this.players = new ArrayList<>();
+        this.teamId = ++teamCounter;
     }
 
     // Methods
@@ -22,18 +25,27 @@ public class Team {
         return teamName;
     }
 
+    public int getLeagueId() {
+        return leagueId;
+    }
+
+    public void setLeagueId(int leagueId) {
+        this.leagueId = leagueId;
+    }
+
     public void setTeamName(String teamName) {
         this.teamName = teamName;
     }
 
     public void addPlayer(Player player) {
+        player.setTeamId(this.teamId);
         players.add(player);
     }
 
-    public Player searchPlayer(int playerNumber) {
+    public Player searchPlayer(int playerId) {
         // Iterate on the team list until either the player is found or there are no team left
         for(Player player: players) {
-            if(player.getPlayerNumber() == playerNumber) {
+            if(player.getPlayerId() == playerId) {
                 System.out.println(player);
                 return player;
             }
@@ -49,16 +61,5 @@ public class Team {
             System.out.println(i + ") " + player);
         }
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Team{");
-        sb.append("teamName=").append(teamName);
-        sb.append(", players=").append(players);
-        sb.append('}');
-        return sb.toString();
-    }
-
     
 }

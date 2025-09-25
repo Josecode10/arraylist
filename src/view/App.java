@@ -8,6 +8,8 @@ public class App {
     public static void main(String[] args) {
         // Create scanner object
         Scanner myScanner = new Scanner(System.in);
+        // Load zone
+        Zone newZone = new  Zone("Europe");
         // Load leagues
         League leagueOne = new League("Spanish League 'La Liga'");
         League leagueTwo = new League("Dutch League 'Eredivisie'");
@@ -15,7 +17,6 @@ public class App {
         League leagueFour = new League("Italian League 'Serie A");
         League leagueFive = new League("English League 'Premier League'");
         // Add leagues to the zone
-        Zone newZone = new  Zone("Europe");
         newZone.addLeague(leagueOne);
         newZone.addLeague(leagueTwo);
         newZone.addLeague(leagueThree);
@@ -40,10 +41,10 @@ public class App {
             2) Add team.
             3) Edit team.
             4) Remove team.
-            3) Add player.
-            5) Edit player.
-            4) Remove player.
-            5) Exit.
+            5) Add player.
+            6) Edit player.
+            7) Remove player.
+            8) Exit.
             Choose one option:\s""");
 
         try {
@@ -54,18 +55,10 @@ public class App {
         }
     }
 
-    
-
     static boolean executeOption(int option, Scanner myScanner) {
         switch (option) {
             case 1 -> {
-                System.out.println("""
-                    \n--- Available leagues ---
-                    1) Spanish League 'La Liga'
-                    2) Dutch League 'Eredivisie'
-                    3) German League 'Bundesliga'
-                    4) Italian League 'Serie A
-                    5) English League 'Premier League'\n""");
+
             }
 
             case 2 -> {
