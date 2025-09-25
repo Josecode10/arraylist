@@ -15,7 +15,6 @@ public class Player {
     }
     
     // methods
-
     public int getPlayerNumber() {
         return playerNumber;
     }

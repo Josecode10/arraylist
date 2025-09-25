@@ -5,13 +5,15 @@ import java.util.List;
 
 public class League {
     // Attributes
-    private List<Team> league;
+    private List<Team> teams;
     private String leagueName;
 
     // Constructor
+    public League() {}
+
     public League(String leagueName) {
         this.leagueName = leagueName;
-        this.league = new ArrayList<>();
+        this.teams = new ArrayList<>();
     }
 
     public String getLeagueName() {
@@ -23,21 +25,38 @@ public class League {
     }
 
     public void addTeam(Team team) {
-        league.add(team);
+        teams.add(team);
+    }
+
+    public Team searchTeam(String teamName) {
+        for(Team team: teams) {
+            if (team.getTeamName().equalsIgnoreCase(teamName)) {
+                return team;
+            }
+        }
+        return null;
     }
 
     public void listAllTeams() {
-        for(Team team: league) {
-            System.out.println("Team name: " + team);
+        var i = 1;
+        for(Team team: teams) {
+            System.out.println(i + ") " + team);
+            i++;
         }
     }
 
     public void listAllTeamAndPlayers() {
-        for(Team team: league) {
-            for(Player player: team)
+        var i = 1;
+        for(Team team: teams) {
+            System.out.println(i + ") " + team.getTeamName());
+            i++;
+            team.listTeamPlayers();
         }
     }
 
-
+    @Override
+    public String toString() {
+        return "League [leagueName=" + leagueName + "]";
+    }
 
 }
