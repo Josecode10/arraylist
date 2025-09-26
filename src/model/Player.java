@@ -10,6 +10,7 @@ public class Player {
     private int teamId;
 
     // Constructor
+    public Player() {}
 
     public Player(String playerName, int jerseyNumber, String playerPosition) {
         this.playerName = playerName;

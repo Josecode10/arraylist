@@ -5,30 +5,35 @@ import java.util.List;
 
 public class Zone {
     // Attributes
-    private static int zoneCounter;
-    private int zoneID;
-    private String zoneName;
-    private List<League> leagues;
+    private static List<League> leagues = new ArrayList<>();
+    // private static int zoneCounter;
+    // private int zoneID;
+    // private String zoneName;
+    // private List<League> leagues;
 
     // Contructor
-    public Zone() {}
+    // public Zone() {}
 
-    public Zone(String zoneName) {
-        this.zoneName = zoneName;
-        this.leagues = new ArrayList<>();
-        this.zoneID = ++zoneCounter;
-    }
+    // public Zone(String zoneName) {
+    //     this.zoneName = zoneName;
+    //     this.leagues = new ArrayList<>();
+    //     this.zoneID = ++zoneCounter;
+    // }
 
-    public String getZoneName() {
-        return zoneName;
-    }
-
-    public void setZoneName(String zoneName) {
-        this.zoneName = zoneName;
-    }
-
+    // Methods
+    // public int getZoneID() {
+    //     return zoneID;
+    // }
+    
+    // public String getZoneName() {
+    //     return zoneName;
+    // }
+    
+    // public void setZoneName(String zoneName) {
+    //     this.zoneName = zoneName;
+    // }
+    
     public void addLeague(League league) {
-        league.setZoneId(this.zoneID);
         leagues.add(league);
     }
 
@@ -38,19 +43,13 @@ public class Zone {
                 return league;
             }
         }
-
         return null;
     }
 
-    public void listAll() {
+    public void listLeagues() {
         for(League league: leagues) {
-            System.out.println(league);
-            
+            System.out.println(league + "\n");
+            league.listTeams();
         }
-    }
-
-    @Override
-    public String toString() {
-        return "Zone [zoneID=" + zoneID + ", zoneName=" + zoneName + "]";
     }
 }

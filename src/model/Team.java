@@ -61,5 +61,10 @@ public class Team {
             System.out.println(i + ") " + player);
         }
     }
+
+    @Override
+    public String toString() {
+        return "Team [teamId=" + teamId + ", teamName=" + teamName + ", leagueId=" + leagueId + "]";
+    }
     
 }

@@ -55,25 +55,14 @@ public class League {
     }
 
     public void listTeams() {
-        var i = 1;
         for(Team team: teams) {
-            System.out.println(i + ") " + team);
-            i++;
-        }
-    }
-
-    public void listAllTeamAndPlayers() {
-        var i = 1;
-        for(Team team: teams) {
-            System.out.println(i + ") " + team.getTeamName());
-            i++;
-            team.listPlayers();
+            System.out.println(team);
         }
     }
 
     @Override
     public String toString() {
-        return "League [leagueId=" + leagueId + ", leagueName=" + leagueName + ", zoneId=" + zoneId + "]";
+        return "League [leagueId=" + leagueId + ", leagueName=" + leagueName + "]";
     }
 
 }
